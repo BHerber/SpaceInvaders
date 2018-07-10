@@ -21,6 +21,7 @@ public class GameScreen extends SuperStateMachine {
 	public static int SCORE = 0;
 	
 	//default constructor take a second look at this!! - Bryce 
+// player size coding
 	public GameScreen(StateMachine stateMachine) {
 		super(stateMachine);
 		blocks = new BasicBlocks();
@@ -35,7 +36,7 @@ public class GameScreen extends SuperStateMachine {
 		player.update(delta);
 		level.update(delta, blocks);
 	}
-	
+// initalizes the main game screen such as player scoreboard blocks and level	
 	@Override
 	public void draw(Graphics2D g) {
 		g.setColor(Color.WHITE);
