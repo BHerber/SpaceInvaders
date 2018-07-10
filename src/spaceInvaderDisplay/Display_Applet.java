@@ -9,6 +9,7 @@ public class Display_Applet extends JApplet {
 	private static final long serialVersionUID = 1L;
 	private Display display = new Display();
 	
+	//adds display to the layout
 	public void init() {
 		setLayout(new BorderLayout());
 		add(display);
