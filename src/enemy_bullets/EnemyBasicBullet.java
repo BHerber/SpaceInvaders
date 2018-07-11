@@ -20,26 +20,6 @@ public class EnemyBasicBullet extends EnemyWeaponType{
 		setyPos((int) yPos);
 	}
 	
-	public Rectangle getBullet() {
-		return bullet;
-	}
-
-	public int getxPos() {
-		return xPos;
-	}
-
-	public void setxPos(int xPos) {
-		this.xPos = xPos;
-	}
-
-	public int getyPos() {
-		return yPos;
-	}
-
-	public void setyPos(int yPos) {
-		this.yPos = yPos;
-	}
-
 	@Override
 	public void draw(Graphics2D g) {
 		if (bullet == null) {
@@ -65,7 +45,9 @@ public class EnemyBasicBullet extends EnemyWeaponType{
 
 	@Override
 	public boolean collision(Rectangle rect) {
-		// TODO Auto-generated method stub
+		if (bullet != null && bullet.intersects(rect)) {
+			return true;
+		}
 		return false;
 	}
 
@@ -95,6 +77,26 @@ public class EnemyBasicBullet extends EnemyWeaponType{
 		if(bullet !=null || bullet.y < 0 || bullet.y > Display.HEIGHT || bullet.x <0 || bullet.x > Display.WIDTH) {
 			bullet = null;
 		}
+	}
+	
+	public Rectangle getBullet() {
+		return bullet;
+	}
+
+	public int getxPos() {
+		return xPos;
+	}
+
+	public void setxPos(int xPos) {
+		this.xPos = xPos;
+	}
+
+	public int getyPos() {
+		return yPos;
+	}
+
+	public void setyPos(int yPos) {
+		this.yPos = yPos;
 	}
 
 }

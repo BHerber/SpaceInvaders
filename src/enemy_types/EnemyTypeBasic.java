@@ -5,7 +5,6 @@ import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.Random;
 
-
 import enemy_bullets.EnemyBasicBullet;
 import game_screen.BasicBlocks;
 import game_screen.GameScreen;
@@ -94,23 +93,39 @@ public class EnemyTypeBasic extends EnemyType{
 	//this adds collision to the bulets so that they stop on impact of a sprite
 	@Override
 	public boolean collide(int i, Player player, BasicBlocks blocks, ArrayList<EnemyType> enemys) {
+		int size = player.playerWeapons.weapons.size();
 		if(enemySprite.isPlay()) {
 			if(enemys.get(i).deathScene()) {
 				enemys.remove(i);
 			}
+			return false;
 		}
 		
 		for(int w = 0; w < player.playerWeapons.weapons.size(); w++) {
-			if( player.playerWeapons.weapons.get(w).collisionRect(((EnemyTypeBasic) enemys.get(i)).getRect())) {
+			if(enemys != null && player.playerWeapons.weapons.get(w).collisionRect(((EnemyTypeBasic) enemys.get(i)).getRect())) {
 				enemySprite.resetLimit();
 				enemySprite.setAnimationSpeed(120);
 				enemySprite.setPlay(true, true);
 				GameScreen.SCORE += 5;
 				return true;
-			} else if (enemys != null) {
-				return true;
 			}
 		}
+/*		try {
+			for(int w = 0; w < size; w++){
+				if( player.playerWeapons.weapons.get(w).collisionRect(((EnemyTypeBasic) enemys.get(i)).getRect())) {
+					enemySprite.resetLimit();
+					enemySprite.setAnimationSpeed(120);
+					enemySprite.setPlay(true, true);
+					GameScreen.SCORE += 5;
+					return true;
+				} else if (enemys != null) {
+					return true;
+				}
+			}
+		} catch (Exception e) {
+			size = player.playerWeapons.weapons.size() + 1;
+			e.printStackTrace();
+		}*/
 		
 		return false;
 	}
