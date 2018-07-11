@@ -18,21 +18,16 @@ public class Level1 implements SuperLevel{
 	public Level1(Player player, EnemyBulletHandler bulletHandler) {
 		this.player = player;
 		this.bulletHandler = bulletHandler;
-		for(int y = 0; y < 5; y++) {
-			for (int x = 0; x < 10; x++) {
-				EnemyType e = new EnemyTypeBasic(150 + (x * 40), 25 + (y * 40), 1, 3, bulletHandler);
-				enemies.add(e);
-			}
-		}
+		addEnemies();
 	}
 	
 	
 	
 	@Override
 	public void draw(Graphics2D g) {
-		if(enemies == null)
+		if(enemies == null) {
 			return;
-		
+		}
 		for (int i = 0; i < enemies.size(); i++) {
 			enemies.get(i).draw(g);
 		}
@@ -90,6 +85,15 @@ public class Level1 implements SuperLevel{
 	public void reset() {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public void addEnemies() {
+		for(int y = 0; y < 5; y++){
+			for(int x = 0; x < 10; x++){
+				EnemyType e = new EnemyTypeBasic(150 + (x * 40), 25 + (y * 40), 1 , 3, bulletHandler);
+				enemies.add(e);
+			}
+		}
 	}
 
 	

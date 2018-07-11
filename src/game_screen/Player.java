@@ -106,4 +106,11 @@ public class Player implements KeyListener{
 		
 	}
 
+	public Rectangle getRect() {
+		// TODO Auto-generated method stub
+		return rect;
+	}
+	
+	
+
 }

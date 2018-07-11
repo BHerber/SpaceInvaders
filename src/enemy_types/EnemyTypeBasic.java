@@ -93,7 +93,7 @@ public class EnemyTypeBasic extends EnemyType{
 	//this adds collision to the bulets so that they stop on impact of a sprite
 	@Override
 	public boolean collide(int i, Player player, BasicBlocks blocks, ArrayList<EnemyType> enemys) {
-		int size = player.playerWeapons.weapons.size();
+		//int size = player.playerWeapons.weapons.size();
 		if(enemySprite.isPlay()) {
 			if(enemys.get(i).deathScene()) {
 				enemys.remove(i);

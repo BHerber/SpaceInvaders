@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.util.Random;
 
-public class PixelExplosion implements ExplosionType{
+public class PixelExplosion extends ExplosionType{
 
 	private double[] xPos, yPos, xPosVol, yPosVol, angle, energy;
 	
